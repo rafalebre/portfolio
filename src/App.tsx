@@ -1,10 +1,14 @@
 import React from 'react'
+import Hero from '@components/Sections/Hero'
+import About from '@components/Sections/About'
+import Skills from '@components/Sections/Skills'
 
 const App: React.FC = () => {
   return (
     <div className="app">
-      <h1>Rafael Portfolio</h1>
-      <p>Setup completed successfully!</p>
+      <Hero />
+      <About />
+      <Skills />
     </div>
   )
 }
