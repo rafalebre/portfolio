@@ -21,21 +21,65 @@ const Portfolio: React.FC = () => {
     setActiveFilter(filter)
   }
 
+  const handleDemoClick = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer')
+  }
+
+  const handleCodeClick = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer')
+  }
+
+  const getProjectImage = (project: Project) => {
+    // Correct mapping: Project Title → File Name
+    const realImages: { [key: string]: string } = {
+      'Secret Word': '/images/projects/secret-word.jpg',
+      'React IG': '/images/projects/react-ig.jpg',
+      'Mini Blog': '/images/projects/mini-blog.jpg',
+      'Swap Cycle': '/images/projects/swap-cycle.jpg'
+    }
+
+    if (realImages[project.title]) {
+      return (
+        <img 
+          src={realImages[project.title]} 
+          alt={project.title}
+          style={{ 
+            width: '100%', 
+            height: '100%', 
+            objectFit: 'contain',
+            backgroundColor: 'var(--color-surface)'
+          }}
+        />
+      )
+    }
+
+    // For projects without images - simple background
+    return (
+      <div className={styles.imagePlaceholder}>
+        {project.isPrivate ? '🔒 Private Project' : '📱 Project Preview'}
+      </div>
+    )
+  }
+
   const renderProjectCard = (project: Project) => (
     <div key={project.id} className={`${styles.projectCard} ${project.isPrivate ? styles.privateCard : ''}`}>
       <div className={styles.imageContainer}>
-        <div className={styles.imagePlaceholder}>
-          {project.isPrivate ? '🔒 Private Project' : '📱 Project Preview'}
-        </div>
+        {getProjectImage(project)}
         <div className={styles.overlay}>
           <div className={styles.overlayContent}>
             {!project.isPrivate && project.demoUrl && (
-              <button className={styles.actionButton}>
+              <button 
+                className={styles.actionButton}
+                onClick={() => handleDemoClick(project.demoUrl!)}
+              >
                 <span>View Demo</span>
               </button>
             )}
             {!project.isPrivate && project.githubUrl && (
-              <button className={styles.actionButton}>
+              <button 
+                className={styles.actionButton}
+                onClick={() => handleCodeClick(project.githubUrl!)}
+              >
                 <span>View Code</span>
               </button>
             )}
