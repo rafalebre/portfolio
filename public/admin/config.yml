@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: "insights"
+    label: "Blog Posts"
+    folder: "content/insights"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Excerpt", name: "excerpt", widget: "text"}
+      - {label: "Content", name: "content", widget: "markdown"}
+      - {label: "Category", name: "category", widget: "select", options: ["tech", "business", "career"]}
+      - {label: "Publish Date", name: "publishedAt", widget: "datetime"}
+      - {label: "Read Time (minutes)", name: "readTime", widget: "number"}
+      - {label: "Tags", name: "tags", widget: "list"}
