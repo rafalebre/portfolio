@@ -5,6 +5,7 @@ import About from '@components/Sections/About'
 import Skills from '@components/Sections/Skills'
 import Experience from '@components/Sections/Experience'
 import Portfolio from '@components/Sections/Portfolio'
+import Contact from '@components/Sections/Contact'
 import Insights from '@components/Sections/Insights'
 
 // Home page with all sections
@@ -16,6 +17,7 @@ const HomePage: React.FC = () => {
       <Skills />
       <Experience />
       <Portfolio />
+      <Contact />
     </div>
   )
 }
