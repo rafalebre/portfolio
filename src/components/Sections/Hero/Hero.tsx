@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styles from './Hero.module.css'
 
 const Hero: React.FC = () => {
@@ -18,12 +19,12 @@ const Hero: React.FC = () => {
               and modern development skills. Based in Europe, available worldwide.
             </p>
             <div className={styles.ctas}>
-              <a href="#contact" className={styles.primaryCta}>
+              <Link to="/contact" className={styles.primaryCta}>
                 Get In Touch
-              </a>
-              <a href="#portfolio" className={styles.secondaryCta}>
+              </Link>
+              <Link to="/portfolio" className={styles.secondaryCta}>
                 View My Work
-              </a>
+              </Link>
             </div>
           </div>
           <div className={styles.imageContent}>
