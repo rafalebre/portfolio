@@ -1,0 +1,170 @@
+/* Base card styles */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover effect */
+.hover:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+/* Sizes */
+.compact {
+  padding: var(--spacing-md);
+}
+
+.normal {
+  padding: var(--spacing-lg);
+}
+
+.large {
+  padding: var(--spacing-xl);
+}
+
+/* Skill card variant */
+.skill {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  text-align: center;
+  position: relative;
+}
+
+.skill.compact {
+  padding: var(--spacing-sm);
+  min-height: auto;
+}
+
+.skill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-border);
+  transition: all var(--transition-normal);
+}
+
+.skill:hover::before {
+  background: var(--color-primary);
+}
+
+/* Experience card variant */
+.experience {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.experience.compact {
+  padding: var(--spacing-lg);
+}
+
+.experience::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 24px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid var(--color-surface);
+}
+
+/* Project card variant */
+.project {
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.project.compact {
+  padding: 0;
+}
+
+/* Info card variant (Contact page) */
+.info {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.info.compact {
+  padding: var(--spacing-lg);
+}
+
+/* Metric card variant (About page) */
+.metric {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  text-align: center;
+  flex: 1;
+}
+
+.metric.compact {
+  padding: var(--spacing-md);
+}
+
+.metric:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+/* Special states for different variants */
+.skill.hover:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+.experience.hover:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+.project.hover:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .large {
+    padding: var(--spacing-lg);
+  }
+  
+  .normal {
+    padding: var(--spacing-md);
+  }
+  
+  .compact {
+    padding: var(--spacing-sm);
+  }
+  
+  .experience::before {
+    left: -6px;
+    border-right-width: 6px;
+  }
+}

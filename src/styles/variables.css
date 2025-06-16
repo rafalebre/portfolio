@@ -21,19 +21,24 @@
   --font-size-4xl: 2.25rem;
   --font-size-5xl: 3rem;
   
-  /* Spacing */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 1.5rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 3rem;
-  --spacing-2xl: 4rem;
-  --spacing-3xl: 6rem;
+  /* Spacing - Compact Version */
+  --spacing-xs: 0.25rem;    /* 4px */
+  --spacing-sm: 0.5rem;     /* 8px */
+  --spacing-md: 0.75rem;    /* 12px */
+  --spacing-lg: 1rem;       /* 16px */
+  --spacing-xl: 1.5rem;     /* 24px */
+  --spacing-2xl: 2rem;      /* 32px */
+  --spacing-3xl: 3rem;      /* 48px */
   
   /* Layout */
   --max-width: 1200px;
   --header-height: 80px;
-  --section-padding: var(--spacing-3xl);
+  --section-padding: var(--spacing-2xl);  /* Reduced from 6rem to 2rem */
+  
+  /* Card specific spacing */
+  --card-padding-sm: var(--spacing-md);
+  --card-padding-md: var(--spacing-lg);
+  --card-padding-lg: var(--spacing-xl);
   
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
