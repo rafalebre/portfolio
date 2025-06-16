@@ -1,4 +1,5 @@
 import React from 'react'
+import Card from '@components/shared/Card'
 import { experienceData } from '@data/experience'
 import styles from './Experience.module.css'
 
@@ -21,7 +22,7 @@ const Experience: React.FC = () => {
                 <div className={styles.markerLine}></div>
               </div>
               
-              <div className={styles.content}>
+              <Card variant="experience" size="compact" className={styles.content}>
                 <div className={styles.contentHeader}>
                   <div className={styles.titleInfo}>
                     <h3 className={styles.jobTitle}>{exp.title}</h3>
@@ -68,7 +69,7 @@ const Experience: React.FC = () => {
                     </ul>
                   </div>
                 )}
-              </div>
+              </Card>
             </div>
           ))}
         </div>

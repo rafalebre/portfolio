@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import Card from '@components/shared/Card'
+import Button from '@components/shared/Button'
 import type { ContactForm } from '../../../types'
 import styles from './Contact.module.css'
 
@@ -62,125 +64,125 @@ const Contact: React.FC = () => {
 
         <div className={styles.content}>
           <div className={styles.contactInfo}>
-            <div className={styles.infoCard}>
+            <Card variant="info" size="compact" className={styles.infoCard}>
               <div className={styles.infoIcon}>📧</div>
               <h3 className={styles.infoTitle}>Email</h3>
               <p className={styles.infoText}>rafaellebre100@gmail.com</p>
-            </div>
+            </Card>
 
-            <div className={styles.infoCard}>
+            <Card variant="info" size="compact" className={styles.infoCard}>
               <div className={styles.infoIcon}>🌍</div>
               <h3 className={styles.infoTitle}>Location</h3>
               <p className={styles.infoText}>Europe (Remote Available)</p>
-            </div>
+            </Card>
 
             <div className={styles.socialLinks}>
               <a 
-                href="https://linkedin.com/in/rafael-s-lebre" 
+                href="https://linkedin.com/in/rafael-s-lebre"
                 target="_blank" 
                 rel="noopener noreferrer"
                 className={styles.socialLink}
               >
-                LinkedIn
+                <Button variant="secondary" size="md">
+                  LinkedIn
+                </Button>
               </a>
               <a 
-                href="https://github.com/rafalebre" 
+                href="https://github.com/rafalebre"
                 target="_blank" 
                 rel="noopener noreferrer"
                 className={styles.socialLink}
               >
-                GitHub
+                <Button variant="secondary" size="md">
+                  GitHub
+                </Button>
               </a>
             </div>
           </div>
 
-          <form 
-            className={styles.contactForm} 
-            onSubmit={handleSubmit}
-            name="contact"
-            method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-          >
-            <input type="hidden" name="form-name" value="contact" />
-            <input type="hidden" name="bot-field" />
+          <Card variant="info" size="normal" className={styles.contactForm}>
+            <form onSubmit={handleSubmit} name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="bot-field" />
 
-            <div className={styles.formGroup}>
-              <label htmlFor="name" className={styles.label}>Name *</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                required
-                className={styles.input}
-                placeholder="Your full name"
-              />
-            </div>
-
-            <div className={styles.formGroup}>
-              <label htmlFor="email" className={styles.label}>Email *</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-                className={styles.input}
-                placeholder="your.email@example.com"
-              />
-            </div>
-
-            <div className={styles.formGroup}>
-              <label htmlFor="subject" className={styles.label}>Subject *</label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleInputChange}
-                required
-                className={styles.input}
-                placeholder="What's this about?"
-              />
-            </div>
-
-            <div className={styles.formGroup}>
-              <label htmlFor="message" className={styles.label}>Message *</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleInputChange}
-                required
-                rows={6}
-                className={styles.textarea}
-                placeholder="Tell me about your project, goals, or how I can help..."
-              />
-            </div>
-
-            {submitStatus === 'success' && (
-              <div className={styles.successMessage}>
-                ✅ Message sent successfully! I'll get back to you soon.
+              <div className={styles.formGroup}>
+                <label htmlFor="name" className={styles.label}>Name *</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                  className={styles.input}
+                  placeholder="Your full name"
+                />
               </div>
-            )}
 
-            {submitStatus === 'error' && (
-              <div className={styles.errorMessage}>
-                ❌ Failed to send message. Please try again or email me directly.
+              <div className={styles.formGroup}>
+                <label htmlFor="email" className={styles.label}>Email *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  className={styles.input}
+                  placeholder="your.email@example.com"
+                />
               </div>
-            )}
 
-            <button 
-              type="submit" 
-              className={styles.submitButton}
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
-            </button>
-          </form>
+              <div className={styles.formGroup}>
+                <label htmlFor="subject" className={styles.label}>Subject *</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  required
+                  className={styles.input}
+                  placeholder="What's this about?"
+                />
+              </div>
+
+              <div className={styles.formGroup}>
+                <label htmlFor="message" className={styles.label}>Message *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                  rows={4}
+                  className={styles.textarea}
+                  placeholder="Tell me about your project, goals, or how I can help..."
+                />
+              </div>
+
+              {submitStatus === 'success' && (
+                <div className={styles.successMessage}>
+                  ✅ Message sent successfully! I'll get back to you soon.
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className={styles.errorMessage}>
+                  ❌ Failed to send message. Please try again or email me directly.
+                </div>
+              )}
+
+              <Button 
+                type="submit" 
+                variant="submit"
+                size="lg"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </Button>
+            </form>
+          </Card>
         </div>
       </div>
     </section>

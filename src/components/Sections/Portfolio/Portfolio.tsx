@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import Card from '@components/shared/Card'
+import Button from '@components/shared/Button'
 import { projectsData } from '@data/projects'
 import type { Project } from '../../../types'
 import styles from './Portfolio.module.css'
@@ -30,7 +32,6 @@ const Portfolio: React.FC = () => {
   }
 
   const getProjectImage = (project: Project) => {
-    // Correct mapping: Project Title → File Name
     const realImages: { [key: string]: string } = {
       'Secret Word': '/images/projects/secret-word.jpg',
       'React IG': '/images/projects/react-ig.jpg',
@@ -53,7 +54,6 @@ const Portfolio: React.FC = () => {
       )
     }
 
-    // For projects without images - simple background
     return (
       <div className={styles.imagePlaceholder}>
         {project.isPrivate ? '🔒 Private Project' : '📱 Project Preview'}
@@ -62,26 +62,33 @@ const Portfolio: React.FC = () => {
   }
 
   const renderProjectCard = (project: Project) => (
-    <div key={project.id} className={`${styles.projectCard} ${project.isPrivate ? styles.privateCard : ''}`}>
+    <Card 
+      key={project.id} 
+      variant="project" 
+      size="compact" 
+      className={`${styles.projectCard} ${project.isPrivate ? styles.privateCard : ''}`}
+    >
       <div className={styles.imageContainer}>
         {getProjectImage(project)}
         <div className={styles.overlay}>
           <div className={styles.overlayContent}>
             {!project.isPrivate && project.demoUrl && (
-              <button 
-                className={styles.actionButton}
+              <Button 
+                variant="primary"
+                size="sm"
                 onClick={() => handleDemoClick(project.demoUrl!)}
               >
-                <span>View Demo</span>
-              </button>
+                View Demo
+              </Button>
             )}
             {!project.isPrivate && project.githubUrl && (
-              <button 
-                className={styles.actionButton}
+              <Button 
+                variant="secondary"
+                size="sm"
                 onClick={() => handleCodeClick(project.githubUrl!)}
               >
-                <span>View Code</span>
-              </button>
+                View Code
+              </Button>
             )}
             {project.isPrivate && (
               <div className={styles.privateNote}>
@@ -116,19 +123,8 @@ const Portfolio: React.FC = () => {
             </span>
           )}
         </div>
-
-        {project.metrics && project.metrics.length > 0 && (
-          <div className={styles.metrics}>
-            {project.metrics.map((metric, metricIdx) => (
-              <div key={metricIdx} className={styles.metric}>
-                <span className={styles.metricValue}>{metric.value}</span>
-                <span className={styles.metricLabel}>{metric.label}</span>
-              </div>
-            ))}
-          </div>
-        )}
       </div>
-    </div>
+    </Card>
   )
 
   return (
@@ -143,13 +139,15 @@ const Portfolio: React.FC = () => {
 
         <div className={styles.filters}>
           {filters.map((filter) => (
-            <button
+            <Button
               key={filter.key}
-              className={`${styles.filterButton} ${activeFilter === filter.key ? styles.active : ''}`}
+              variant="filter"
+              size="md"
+              active={activeFilter === filter.key}
               onClick={() => handleFilterClick(filter.key)}
             >
               {filter.label} ({filter.count})
-            </button>
+            </Button>
           ))}
         </div>
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import Card from '@components/shared/Card'
 import styles from './About.module.css'
 
 const About: React.FC = () => {
@@ -27,18 +28,18 @@ const About: React.FC = () => {
               </p>
             </div>
             <div className={styles.highlights}>
-              <div className={styles.highlight}>
+              <Card variant="metric" size="compact" className={styles.highlight}>
                 <span className={styles.number}>8+</span>
                 <span className={styles.label}>Years Marketing</span>
-              </div>
-              <div className={styles.highlight}>
+              </Card>
+              <Card variant="metric" size="compact" className={styles.highlight}>
                 <span className={styles.number}>2+</span>
                 <span className={styles.label}>Years Coding</span>
-              </div>
-              <div className={styles.highlight}>
+              </Card>
+              <Card variant="metric" size="compact" className={styles.highlight}>
                 <span className={styles.number}>3</span>
                 <span className={styles.label}>Countries</span>
-              </div>
+              </Card>
             </div>
           </div>
           <div className={styles.imageContent}>
