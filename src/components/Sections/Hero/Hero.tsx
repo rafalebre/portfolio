@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
               <Link to="/contact" className={styles.primaryCta}>
                 Get In Touch
               </Link>
-              <Link to="/portfolio" className={styles.secondaryCta}>
+              <Link to="/portfolio" className={styles.primaryCta}>
                 View My Work
               </Link>
             </div>

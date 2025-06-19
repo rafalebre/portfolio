@@ -65,41 +65,29 @@
   flex-wrap: wrap;
 }
 
-.primaryCta,
-.secondaryCta {
+/* FIX: Ambos os botões agora são iguais */
+.primaryCta {
   padding: var(--spacing-md) var(--spacing-xl);
   border-radius: 8px;
   font-weight: 600;
   font-size: var(--font-size-base);
   transition: all var(--transition-normal);
   cursor: pointer;
-  border: 2px solid transparent;
+  border: 2px solid var(--color-primary);
   text-decoration: none;
   display: inline-block;
-}
-
-.primaryCta {
-  background: var(--color-primary);
-  color: white;
+  background: transparent;
+  color: var(--color-primary);
 }
 
 .primaryCta:hover {
-  background: var(--color-accent);
+  background: var(--color-primary);
+  color: white;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
-.secondaryCta {
-  background: transparent;
-  color: var(--color-primary);
-  border-color: var(--color-primary);
-}
-
-.secondaryCta:hover {
-  background: var(--color-primary);
-  color: white;
-  transform: translateY(-2px);
-}
+/* FIX: Removido secondaryCta - agora ambos usam primaryCta */
 
 .imageContent {
   display: flex;
@@ -197,8 +185,7 @@
     align-items: center;
   }
   
-  .primaryCta,
-  .secondaryCta {
+  .primaryCta {
     width: 100%;
     max-width: 250px;
     text-align: center;

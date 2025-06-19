@@ -49,12 +49,15 @@
   min-width: 200px;
 }
 
+/* FIX: Container com altura mínima fixa para evitar movimento */
 .skillsContainer {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
+  min-height: 400px; /* Altura mínima fixa */
+  justify-content: flex-start; /* Alinhamento sempre no topo */
 }
 
 .category {
@@ -224,6 +227,11 @@
     min-height: 80px;
     min-width: 100px;
   }
+
+  /* FIX: Reduzir altura mínima em mobile */
+  .skillsContainer {
+    min-height: 300px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -235,5 +243,10 @@
     min-width: 80px;
     flex: 1 1 calc(50% - var(--spacing-sm));
     max-width: 120px;
+  }
+
+  /* FIX: Altura ainda menor em mobile pequeno */
+  .skillsContainer {
+    min-height: 250px;
   }
 }
