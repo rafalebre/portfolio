@@ -62,7 +62,6 @@
   transform: translateY(-2px);
 }
 
-/* FIX: Toggle button com melhor contraste */
 .toggle {
   background: var(--color-surface);
   color: var(--color-text);
@@ -71,7 +70,7 @@
 
 .toggle:hover:not(.disabled) {
   border-color: var(--color-primary);
-  background: var(--color-background); /* FIX: Background mais claro no hover */
+  background: var(--color-background);
   color: var(--color-primary);
 }
 
@@ -81,13 +80,13 @@
   border-color: var(--color-primary);
 }
 
-/* FIX: Active button mantém texto branco no hover */
 .toggle.active:hover:not(.disabled) {
   background: var(--color-accent);
   border-color: var(--color-accent);
-  color: white; /* FIX: Força texto branco no hover quando ativo */
+  color: white;
 }
 
+/* FIX: Aplicando a mesma correção do toggle para filter */
 .filter {
   background: var(--color-background);
   color: var(--color-text);
@@ -97,6 +96,7 @@
 
 .filter:hover:not(.disabled) {
   border-color: var(--color-primary);
+  background: var(--color-background);
   color: var(--color-primary);
   transform: translateY(-2px);
 }
@@ -107,6 +107,13 @@
   color: white;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+}
+
+/* FIX: Correção crítica - filter ativo com hover mantém texto branco */
+.filter.active:hover:not(.disabled) {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: white !important; /* Força texto branco sempre visível */
 }
 
 .submit {
