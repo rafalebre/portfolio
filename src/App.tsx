@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from '@components/Layout/Navbar'
+import SocialIcons from '@components/Layout/SocialIcons'
 import Hero from '@components/Sections/Hero'
 import About from '@components/Sections/About'
 import Skills from '@components/Sections/Skills'
@@ -71,6 +72,7 @@ const App: React.FC = () => {
     <Router>
       <div className="app">
         <Navbar />
+        <SocialIcons />
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />

@@ -1,0 +1,124 @@
+.socialIcons {
+  position: fixed;
+  left: var(--spacing-lg);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  z-index: 999;
+}
+
+.iconLink {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--color-background);
+  border: 2px solid var(--color-border);
+  border-radius: 50%;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.iconLink:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+  transform: translateX(8px) scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.tooltip {
+  position: absolute;
+  left: 60px;
+  background: var(--color-text);
+  color: var(--color-background);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 6px;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--transition-normal);
+  transform: translateX(-10px);
+}
+
+.tooltip::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-right-color: var(--color-text);
+}
+
+.iconLink:hover .tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .socialIcons {
+    left: var(--spacing-md);
+  }
+  
+  .iconLink {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .socialIcons {
+    position: fixed;
+    bottom: var(--spacing-lg);
+    left: 50%;
+    top: auto;
+    transform: translateX(-50%);
+    flex-direction: row;
+    background: var(--color-background);
+    padding: var(--spacing-sm);
+    border-radius: 25px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-border);
+  }
+  
+  .iconLink {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .iconLink:hover {
+    transform: translateY(-4px) scale(1.1);
+  }
+  
+  .tooltip {
+    display: none;
+  }
+}
